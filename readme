@@ -4,3 +4,25 @@ This plugin was created with the following Goals in mind:
     No need for <form> element
     Lightweight, clean, minimalist
     Allow 'Required' and 'Number' validation
+
+Sample Usage:
+	function validateRequiredPanel()
+	{
+		var trueOrFalse = $.willidate(
+			[
+				{control: '#txt1', required: true},
+				{control: '#txt2', required: true}
+			], { popupLocation: 'right'});
+			
+		alert(trueOrFalse);
+	}			
+
+	function validateNumericPanel()
+	{
+		var trueOrFalse = $.willidate(
+			[
+				{control: '#nr1', numeric: true},
+			], { popupLocation: 'bottom'});
+			
+		alert(trueOrFalse);
+	}
