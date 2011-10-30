@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-1.6.4.js"></script>
+		<script src="/jquery.willidate.1.1.js"></script>
+
+		<style>
+			.border
+			{
+				border: 1px solid gray;
+				border-radius: 4px;
+				padding: 8px;
+				margin: 4px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+		
+			$(function()
+			{
+				$("#required-test-panel1").click(function() { alert ('aiit'); });
+			});
+		
+		</script>
+	</head>
+	<body>
+		<h1>JQuery validation plugin test page.</h1>
+		<p>
+			This plugin was created with the following goals in mind:
+		</p>
+		<ul>
+			<li>Customizable UI</li>
+			<li>No need for &lt;form&gt; element</li>
+			<li>Lightweight, clean, minimalist</li>
+		</ul>
+		<div class="border" id="required-test-panel1">
+			<h2>Required Test</h2>
+			Required1: <input type="text" id="txt1" /><br/>
+			Required2: <input type="text" id="txt2" /><br/>
+			Not Required: <input type="text" id="txt3" /><br/>
+			
+			<input type="submit"/>
+		</div>
+	</body>
+</html>
