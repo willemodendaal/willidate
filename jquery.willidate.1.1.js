@@ -12,7 +12,9 @@
 		};
 		
 		var settings = $.extend({}, defaults, options );
-		
+
+		ensureDateJSLibraryIsIncluded();
+
 		//Hide validation messages
 		$('.validation-error').hide();
 		
@@ -39,6 +41,17 @@
 		
 		return (errorControlsAndMessages.length == 0);
 	};
+  
+  
+	function ensureDateJSLibraryIsIncluded()
+	{
+		var dt = Date.parse('today');
+		
+		if (!dt)
+		{
+			throw 'willidate depends on the date.js library that can be downloaded at http://www.datejs.com/';
+		}
+	}
   
   
 	function renderErrors(errorControlsAndMessages, settings)
@@ -104,6 +117,13 @@
 				return { success: false, message: 'Must be Numeric' };
 			}
 		}
+		if (rule.date == true)
+		{
+			if (!valueIsDate(ctrl))
+			{
+				return { success: false, message: 'Must be a Date' };
+			}
+		}
 		
 		return { success: true };
 	}
@@ -128,11 +148,26 @@
 		var val = $control.val();
 		if (val == '' || val == undefined || val == null)
 		{
-		//Empty is OK. This should return true.
+			//Empty is OK. This should return true.
 			return true;
 		}
 		
 		return isNumber(val);
+	}
+
+	function valueIsDate($control)
+	{
+		var val = $control.val();
+		if (val == '' || val == undefined || val == null)
+		{
+			//Empty is OK. This should return true.
+			return true;
+		}
+		
+		// Parse the string to Date using datejs from http://www.datejs.com/
+		var dt = Date.parse(val);
+		
+		return dt != null;
 	}
 	
 	function isNumber(n) 

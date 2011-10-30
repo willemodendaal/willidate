@@ -3,7 +3,8 @@ This plugin was created with the following Goals in mind:
     Minimal CSS, so popup can be customized by application.
     No need for <form> element
     Lightweight, clean, minimalist
-    Allow 'Required' and 'Number' validation
+    Allow 'Required', 'Date' and 'Number' validation
+	Do date validation with the date.js library
 
 Sample Usage:
 	function validateRequiredPanel()
