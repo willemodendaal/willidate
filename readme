@@ -1,0 +1,6 @@
+This plugin was created with the following Goals in mind:
+
+    Minimal CSS, so popup can be customized by application.
+    No need for <form> element
+    Lightweight, clean, minimalist
+    Allow 'Required' and 'Number' validation
