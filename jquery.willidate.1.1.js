@@ -97,6 +97,13 @@
 				return { success: false, message: 'Required' };
 			}
 		}
+		if (rule.numeric == true)
+		{
+			if (!valueIsNumeric(ctrl))
+			{
+				return { success: false, message: 'Must be Numeric' };
+			}
+		}
 		
 		return { success: true };
 	}
@@ -113,5 +120,23 @@
 		{
 			return false;
 		}
+	}
+
+	
+	function valueIsNumeric($control)
+	{
+		var val = $control.val();
+		if (val == '' || val == undefined || val == null)
+		{
+		//Empty is OK. This should return true.
+			return true;
+		}
+		
+		return isNumber(val);
+	}
+	
+	function isNumber(n) 
+	{
+		return !isNaN(parseFloat(n)) && isFinite(n);
 	}
 })( jQuery );

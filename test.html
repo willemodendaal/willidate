@@ -18,6 +18,7 @@
 			$(function()
 			{
 				$('#required-test-panel1 input:submit').click(validateRequiredPanel);
+				$('#numeric-test-panel1 input:submit').click(validateNumericPanel);
 			});
 			
 			function validateRequiredPanel()
@@ -27,6 +28,16 @@
 						{control: '#txt1', required: true},
 						{control: '#txt2', required: true}
 					], { popupLocation: 'right'});
+					
+				alert(result);
+			}			
+
+			function validateNumericPanel()
+			{
+				var result = $.willidate(
+					[
+						{control: '#nr1', numeric: true},
+					], { popupLocation: 'bottom'});
 					
 				alert(result);
 			}
@@ -50,7 +61,11 @@
 			Required1: <input type="text" id="txt1" /><br/>
 			Required2: <input type="text" id="txt2" /><br/>
 			Not Required: <input type="text" id="txt3" /><br/>
-			
+			<input type="submit"/>
+		</div>
+		<div class="border" id="numeric-test-panel1">
+			<h2>Numeric Test</h2>
+			Numeric: <input type="text" id="nr1" /><br/>
 			<input type="submit"/>
 		</div>
 	</body>
