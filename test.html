@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<script src="http://code.jquery.com/jquery-1.6.4.js"></script>
-		<script src="/jquery.willidate.1.1.js"></script>
+		<script src="file:///C:/DEV/Personal/willidate/jquery.willidate.1.1.js"></script>
 
 		<style>
 			.border
@@ -17,20 +17,33 @@
 		
 			$(function()
 			{
-				$("#required-test-panel1").click(function() { alert ('aiit'); });
+				$('#required-test-panel1 input:submit').click(validateRequiredPanel);
 			});
+			
+			function validateRequiredPanel()
+			{
+				var result = $.willidate(
+					[
+						{control: '#txt1', required: true},
+						{control: '#txt2', required: true}
+					]);
+					
+				alert(result);
+			}
+		
 		
 		</script>
 	</head>
 	<body>
 		<h1>JQuery validation plugin test page.</h1>
 		<p>
-			This plugin was created with the following goals in mind:
+			This plugin was created with the following Goals in mind:
 		</p>
 		<ul>
 			<li>Customizable UI</li>
 			<li>No need for &lt;form&gt; element</li>
 			<li>Lightweight, clean, minimalist</li>
+			<li>Allow 'Required' and 'Number' validation</li>
 		</ul>
 		<div class="border" id="required-test-panel1">
 			<h2>Required Test</h2>
